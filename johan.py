@@ -1,3 +1,8 @@
+# inital layer: finite 3 sec
+# transformed layers: added underneath
+# transformations: kitchen sink
+# limitations: gaps in audio due to (1) working with files and (2) alternating between processing audio and playing audio back
+
 import sounddevice as sd
 import numpy as np
 from scipy.io import wavfile
@@ -9,7 +14,7 @@ import sys
 import psutil 
 
 class ChickenChurner:
-    def __init__(self, base_input="chickens.wav", loops=8, fade_decrement=0.25):
+    def __init__(self, base_input="chickens.wav", loops=18, fade_decrement=0.25):
         self.base_input = base_input
         self.num_loops = loops
         self.fade_decrement = fade_decrement
@@ -129,7 +134,7 @@ class ChickenChurner:
         
         # Cleanup
         for file in self.created_files[1:]:
-            if os.path.exists(file): os.remove(file)
+            # if os.path.exists(file): os.remove(file)
 
 if __name__ == "__main__":
     churner = ChickenChurner()
